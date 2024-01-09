@@ -9,35 +9,36 @@ function getComputerChoice(){
         return 'PAPER'
     }
     if (p === 2){
-        return 'SCISSORS'
+        return 'SCISSOR'
     }
 }
 
 function playRound(player,computer){
 
     let p = player.toUpperCase()
+    let c = computer
 
     // INCASE OF A TIE 
-    if (p === computer){
-        playRound(player,getComputerChoice())
+    if (p === c){
+        c = getComputerChoice()
     }
-    if(p === 'ROCK' && computer === 'PAPER'){
+    if(p === 'ROCK' && c === 'PAPER'){
         return 1
     }
-    if(p === 'PAPER' && computer === 'SCISSORS'){
+    if(p === 'PAPER' && c === 'SCISSOR'){
         return 1
     }
-    if(p === 'SCISSORS' && computer === 'ROCK'){
+    if(p === 'SCISSOR' && c === 'ROCK'){
         return 1
     }
-    if(p === 'ROCK' && computer === 'SCISSORS'){
-        return 0
+    if(p === 'ROCK' && c === 'SCISSOR'){
+        return -1
     }
-    if(p === 'PAPER' && computer === 'ROCK'){
-        return 0
+    if(p === 'PAPER' && c === 'ROCK'){
+        return -1
     }
-    if(p === 'SCISSORS' && computer === 'PAPER'){
-        return 0
+    if(p === 'SCISSOR' && c === 'PAPER'){
+        return -1
     }
 }
 
@@ -46,10 +47,10 @@ function game(n){
     let player_score = 0
     let computer_score = 0
     
-    for (i=0;i<=n;i++){
-        let player = prompt("Enter Rock/Paper/Scissors :")
+    for (i=0;i<n;i++){
+        let player = prompt("Enter Rock/Paper/SCISSOR :")
         let r = playRound(player,getComputerChoice())
-        if (r===0){
+        if (r===-1){
             player_score++
         }
         else{
@@ -59,8 +60,10 @@ function game(n){
 
     if (player_score > computer_score){
         console.log("player won by "+player_score+" points")
-    }else{
+    }else if (player_score < computer_score){
         console.log("computer won by "+computer_score+" points")
+    }else{
+        console.log("It's a Tie")
     }
 }
 
