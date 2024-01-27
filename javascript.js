@@ -1,5 +1,3 @@
-console.log("hello world from javascript file ")
-
 function getComputerChoice(){
     p = Math.floor(Math.random()*3)
     if (p === 0){
