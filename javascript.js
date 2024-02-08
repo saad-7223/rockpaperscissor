@@ -2,28 +2,39 @@ let r_btn = document.querySelector(".rock")
 let s_btn = document.querySelector(".scissors")
 let p_btn = document.querySelector(".paper")
 
-
+let p = "";
 r_btn.addEventListener('click',()=>{
     console.log(r_btn.textContent)
+    p = r_btn.textContent
 })
 s_btn.addEventListener('click',()=>{
     console.log(s_btn.textContent)
+    p = s_btn.textContent
 })
 p_btn.addEventListener('click',()=>{
     console.log(p_btn.textContent)
+    p = p_btn.textContent
 })
-// function getComputerChoice(){
-//     p = Math.floor(Math.random()*3)
-//     if (p === 0){
-//         return 'ROCK'
-//     }
-//     if (p === 1){
-//         return 'PAPER'
-//     }
-//     if (p === 2){
-//         return 'SCISSOR'
-//     }
-// }
+
+let container = document.querySelector(".container")
+let result = document.createElement("div")
+result.className = "result"
+result.style.color = white
+result.innerText = p
+container.appendChild(result)
+
+function getComputerChoice(){
+    c = Math.floor(Math.random()*3)
+    if (c === 0){
+        return 'ROCK'
+    }
+    if (c === 1){
+        return 'PAPER'
+    }
+    if (c === 2){
+        return 'SCISSOR'
+    }
+}
 
 // function playRound(player,computer){
 
